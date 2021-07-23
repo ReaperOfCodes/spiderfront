@@ -1,0 +1,121 @@
+header {
+  width: 100%;
+  padding-top: 16px;
+}
+
+.navbar {
+  max-width: 1020px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15vh;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+
+  li {
+    margin-left: 24px;
+  }
+
+  @include responsive() {
+    display: none;
+  }
+}
+
+.logo {
+  max-width: 50px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  color: $gray-3;
+  transition: 0.7s ease;
+
+  &.red {
+    color: $red-dark;
+
+    &:hover {
+      color: $red-light;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+
+    width: 2px;
+    height: 0px;
+
+    background: linear-gradient(180deg, rgba(234, 29, 34, 0) 0%, #ea1d22 100%);
+    transition: 0.7s ease;
+  }
+
+  &:hover {
+    color: $white-light;
+
+    &::after {
+      height: 40px;
+    }
+  }
+}
+
+.bx {
+  width: 48px;
+  height: 48px;
+  background-color: $white;
+  border-radius: 8px;
+  display: none;
+
+  @include responsive() {
+    display: block;
+  }
+}
+
+.nav-social {
+  display: flex;
+  align-items: center;
+  height: 30px;
+
+  @include responsive() {
+    display: none;
+  }
+
+  svg {
+    cursor: pointer;
+
+    margin-left: 16px;
+    width: 24px;
+    transition: 0.7s ease;
+
+    path,
+    circle {
+      transition: 0.7s ease;
+    }
+
+    &:hover {
+      transform: translate3d(0, -3px, 0);
+      path,
+      circle {
+        fill: $red-light;
+      }
+    }
+  }
+}
